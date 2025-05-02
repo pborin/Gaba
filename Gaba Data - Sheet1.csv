@@ -1,0 +1,34 @@
+Clinc Name,Patient ID,Weight (lbs),Age,Seen this patient before?,Vocalization,Biting,Hissing,Growling,Swatting,Hiding,Fleeing,Did this patient get gaba?,What dose?,"Increase, decrease, stay same dose?",(Before)Vocalization,Biting,Hissing,Growling,Swatting,Hiding,Fleeing,Comments
+Best Care,1,13.2,9 years,No,3,3,5,5,4,4,3,No,,,,,,,,,,Sending 50mg for next visit
+Best Care,1,13.2,9 years,Yes,2,2,3,3,3,3,2,Yes,50mg,Increase,,,,,,,,Improved but will give 100mg prior to next visit
+Best Care,2,15,8 years,No,5,3,3,5,4,3,4,No,,,,,,,,,,Will send 100mg prior to next visit
+Best Care,3,13.8,2 years,Yes,1,1,1,2,1,2,1,No,,,,,,,,,,No need for gaba this visit
+Best Care,4,14.9,11 years,Yes,3,3,3,3,3,3,3,Yes,200mg,Keep same,5,5,5,5,5,5,5,Was still too fractious at previous appts on 100mg. used to get full sedation for BW/annual on 200mg. was at least able to get blood and urine for senior panel without full sedation. Improvement!
+Best Care,5,16,9 Years,Yes,1,1,1,1,1,1,1,No,,,,,,,,,,No need for gaba. Good boy!
+Best Care,6,10.4,9 Years,No,3,3,4,4,4,5,5,No,,Increase,,,,,,,,Would try 100mg for next visit
+Best Care,7,10.4,4 years,Yes,3,2,3,3,2,4,3,Yes,50mg night before 50 mg morning of,Increase,4,4,5,5,5,5,5,
+Best Care,8,7.8,7 years,Yes,4,4,5,5,4,3,4,Yes,100mg,Keep same,3,3,4,4,4,3,3,
+Best Care,9,14,11 years,Yes,4,4,4,4,5,3,5,Yes,100mg,Keep same,3,4,3,4,4,3,4,O will try to get more gabapentin into cat next time since they didn't get full dose
+Best Care,10,11.6,18 years,Yes,2,3,3,2,3,2,2,Yes,50 mg,Increase,3,3,3,2,4,2,2,
+Best Care,11,6.82,9 years,Yes,1,3,1,2,1,1,1,Yes,100mg,Decrease,1,3,2,3,1,1,1,
+Best Care,12,8.6,4 years,No,1,4,5,4,5,1,3,No,,,,,,,,,,
+Best Care,13,12.8,8 years,Yes,2,1,3,3,3,1,1,Yes,100mg,Keep same,4,3,5,4,5,2,1,
+Best Care,14,14.2,10 years,Yes,3,2,3,3,2,1,1,Yes,100mg,Keep same,4,5,5,4,5,1,1,
+Sioux Nation,15,15,8 years,Yes,1,1,1,1,1,1,1,Yes,"100mg PM before, 100mg 2 hours prior",Keep same,5,5,5,5,5,1,1,"Previously was very aggressive and would lunge and bite with no provocation. Slightly hissed with vaccination, otherwise did well"
+Sioux Nation,16,7.8,18 years,No,4,2,5,2,4,2,1,Yes,100mg,Keep same,,,,,,,,"This was this cat's first visit at our clinic. We drew blood, gave injections, and took xrays + was able to be done as long as she had cat muzzle on. "
+Sioux Nation,17,9.8,11 months,Yes,2,1,4,3,3,5,1,No,,,5,2,4,4,4,5,5,"Has been here 3x in a short time and sick of us. Was here for surgery but was sick, better now (sick wise, still angry) and went through with spay and declaw today. "
+Sioux Nation,18,13,8 years,Yes,5,5,5,5,5,5,5,No,,,3,3,3,3,3,3,3,Had a dental between visits that caused anxiety for this appointment. Recommended meds in the future
+Sioux Nation,19,13.4,5 years,Yes,1,1,1,1,1,1,3,No,,,,,,,,,,Putting on gabapentin for car ride to move
+Sioux Nation,20,11.4,5 year,Yes,1,1,1,1,1,1,3,No,,,,,,,,,,Putting on gabapentin for car ride to move
+Sioux Nation,21,13,9 years,Yes,5,2,5,5,2,4,3,No,,,,,,,,,,Presented for urinating outside litter box. Has history of urinary infections. No behavioral issues noted from previous visits. Diagnosed with UTI today.
+Sioux Nation,22,8,17 years,Yes,5,1,5,5,2,1,1,No,,,5,1,5,5,2,1,1,"Old, grumpy cat. Has been this way for years."
+Sioux Nation,23,7,8 months,No,2,1,1,1,1,1,1,No,,,,,,,,,,Vocalized while drawing blood. Presented for declaw procedure. Have never seen her previously. 
+Sioux Nation,24,9.6,1 year,No,4,1,1,4,3,5,4,No,,,,,,,,,,Presentedfor neuter procedure. Was hiding prior to and after surgery. other behaviors caused by restraint for sedation. Recommended gabapentin prior to next visit
+Sioux Nation,25,6.6,9 months,No,1,1,2,1,1,1,1,No,,,,,,,,,,Presented for neuter procedure. Have not seen previously. Hissed a little bit when restrained for sedation. 
+Sioux Nation,26,10.6,13 years,Yes,1,1,1,1,1,1,1,No,,,1,1,1,1,1,1,1,"He presented for bloodwork. During blood draw, he did very well. We have never had issues with his behavior. "
+Sioux Nation,27,8,1 year,Yes,2,1,1,1,1,1,1,No,,,,,,,,,,"Timid, but once he gets attention, he opens up and melts"
+Sioux Nation,28,15,4 years,Yes,1,3,5,5,4,1,1,Yes,300 mg,Keep same,1,4,5,5,5,1,1,"Has been fractious since a kitten, have tried gaba and at highest dose and doesn't touch her. Sedate for everything. "
+Sioux Nation,29,13,4 years,Yes,4,3,2,5,5,1,5,Yes,100mg,Increase,4,3,2,5,5,1,5,"Very unhappy in house, plan to make her a barn cat"
+Sioux Nation,30,11.8,5 years,Yes,5,4,4,5,3,1,1,Yes,100 mg,Increase,,,,,,,,Been difficult previous appointments to point sedation is needed to get blood. Today tried to get blood but not greatest physical exam due to wrapped in towel and muzzle. 
+Sioux Nation,31,7,5 years,Yes,2,5,4,4,4,1,1,Yes,200mg,Increase,5,5,5,5,5,5,5,We increased dose to 300mg as cat still wanted to lunge and bite. 
+,,,,,,,,,,,,,,,,,,,,,,
