@@ -1,0 +1,33 @@
+Clinc_Name,Patient_ID,Weight,Age,Seen_this_patient_before,Vocalization,Biting,Hissing,Growling,Swatting,Hiding,Fleeing,Did_this_patient_get_gaba,What_dose,Increase_decrease_stay_same_dose,Vocalization.1,Biting.1,Hissing.1,Growling.1,Swatting.1,Hiding.1,Fleeing.1,Comments
+Best Care,1,13.2,9,No,3,3,5,5,4,4,3,No,0,,,,,,,,,Sending 50mg for next visit
+Best Care,1,13.2,9,Yes,2,2,3,3,3,3,2,Yes,50,Increase,,,,,,,,Improved but will give 100mg prior to next visit
+Best Care,2,15,8,No,5,3,3,5,4,3,4,No,0,,,,,,,,,Will send 100mg prior to next visit
+Best Care,3,13.8,2,Yes,1,1,1,2,1,2,1,No,0,,,,,,,,,No need for gaba this visit
+Best Care,4,14.9,11,Yes,3,3,3,3,3,3,3,Yes,200,Keep same,5,5,5,5,5,5,5,Was still too fractious at previous appts on 100mg. used to get full sedation for BW/annual on 200mg. was at least able to get blood and urine for senior panel without full sedation. Improvement!
+Best Care,5,16,9,Yes,1,1,1,1,1,1,1,No,0,,,,,,,,,No need for gaba. Good boy!
+Best Care,6,10.4,9,No,3,3,4,4,4,5,5,No,0,Increase,,,,,,,,Would try 100mg for next visit
+Best Care,7,10.4,4,Yes,3,2,3,3,2,4,3,Yes,100,Increase,4,4,5,5,5,5,5,
+Best Care,8,7.8,7,Yes,4,4,5,5,4,3,4,Yes,100,Keep same,3,3,4,4,4,3,3,
+Best Care,9,14,11,Yes,4,4,4,4,5,3,5,Yes,100,Keep same,3,4,3,4,4,3,4,O will try to get more gabapentin into cat next time since they didn't get full dose
+Best Care,10,11.6,18,Yes,2,3,3,2,3,2,2,Yes,50,Increase,3,3,3,2,4,2,2,
+Best Care,11,6.82,9,Yes,1,3,1,2,1,1,1,Yes,100,Decrease,1,3,2,3,1,1,1,
+Best Care,12,8.6,4,No,1,4,5,4,5,1,3,No,0,,,,,,,,,
+Best Care,13,12.8,8,Yes,2,1,3,3,3,1,1,Yes,100,Keep same,4,3,5,4,5,2,1,
+Best Care,14,14.2,10,Yes,3,2,3,3,2,1,1,Yes,100,Keep same,4,5,5,4,5,1,1,
+Sioux Nation,15,15,8,Yes,1,1,1,1,1,1,1,Yes,200,Keep same,5,5,5,5,5,1,1,"Previously was very aggressive and would lunge and bite with no provocation. Slightly hissed with vaccination, otherwise did well"
+Sioux Nation,16,7.8,18,No,4,2,5,2,4,2,1,Yes,\,Keep same,,,,,,,,"This was this cat's first visit at our clinic. We drew blood, gave injections, and took xrays + was able to be done as long as she had cat muzzle on. "
+Sioux Nation,17,9.8,11,Yes,2,1,4,3,3,5,1,No,0,,5,2,4,4,4,5,5,"Has been here 3x in a short time and sick of us. Was here for surgery but was sick, better now (sick wise, still angry) and went through with spay and declaw today. "
+Sioux Nation,18,13,8,Yes,5,5,5,5,5,5,5,No,0,,3,3,3,3,3,3,3,Had a dental between visits that caused anxiety for this appointment. Recommended meds in the future
+Sioux Nation,19,13.4,5,Yes,1,1,1,1,1,1,3,No,0,,,,,,,,,Putting on gabapentin for car ride to move
+Sioux Nation,20,11.4,5,Yes,1,1,1,1,1,1,3,No,0,,,,,,,,,Putting on gabapentin for car ride to move
+Sioux Nation,21,13,9,Yes,5,2,5,5,2,4,3,No,0,,,,,,,,,Presented for urinating outside litter box. Has history of urinary infections. No behavioral issues noted from previous visits. Diagnosed with UTI today.
+Sioux Nation,22,8,17,Yes,5,1,5,5,2,1,1,No,0,,5,1,5,5,2,1,1,"Old, grumpy cat. Has been this way for years."
+Sioux Nation,23,7,8,No,2,1,1,1,1,1,1,No,0,,,,,,,,,Vocalized while drawing blood. Presented for declaw procedure. Have never seen her previously. 
+Sioux Nation,24,9.6,1,No,4,1,1,4,3,5,4,No,0,,,,,,,,,Presentedfor neuter procedure. Was hiding prior to and after surgery. other behaviors caused by restraint for sedation. Recommended gabapentin prior to next visit
+Sioux Nation,25,6.6,9,No,1,1,2,1,1,1,1,No,0,,,,,,,,,Presented for neuter procedure. Have not seen previously. Hissed a little bit when restrained for sedation. 
+Sioux Nation,26,10.6,13,Yes,1,1,1,1,1,1,1,No,0,,1,1,1,1,1,1,1,"He presented for bloodwork. During blood draw, he did very well. We have never had issues with his behavior. "
+Sioux Nation,27,8,1,Yes,2,1,1,1,1,1,1,No,0,,,,,,,,,"Timid, but once he gets attention, he opens up and melts"
+Sioux Nation,28,15,4,Yes,1,3,5,5,4,1,1,Yes,300,Keep same,1,4,5,5,5,1,1,"Has been fractious since a kitten, have tried gaba and at highest dose and doesn't touch her. Sedate for everything. "
+Sioux Nation,29,13,4,Yes,4,3,2,5,5,1,5,Yes,100,Increase,4,3,2,5,5,1,5,"Very unhappy in house, plan to make her a barn cat"
+Sioux Nation,30,11.8,5,Yes,5,4,4,5,3,1,1,Yes,100,Increase,,,,,,,,Been difficult previous appointments to point sedation is needed to get blood. Today tried to get blood but not greatest physical exam due to wrapped in towel and muzzle. 
+Sioux Nation,31,7,5,Yes,2,5,4,4,4,1,1,Yes,200,Increase,5,5,5,5,5,5,5,We increased dose to 300mg as cat still wanted to lunge and bite. 
