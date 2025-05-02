@@ -1,0 +1,170 @@
+---
+title: "Gaba Data"
+author: "Pedro da Rocha Borin"
+date: "2025-04-28"
+output: html_document
+---
+```{r}
+# Load necessary libraries
+library(tidyverse)
+library(reshape2)
+library(ggplot2)
+library(dplyr)
+library(nnet)
+```
+
+```{r}
+# Read the data
+gaba_data <- read.csv("Gaba_Data_C.csv")
+gaba_data
+```
+
+```{r}
+summary (gaba_data)
+```
+
+```{r}
+# Define behavior columns
+after_cols <- c("Vocalization", "Biting", "Hissing", "Growling", "Swatting", "Hiding", "Fleeing")
+before_cols <- c("Vocalization.1", "Biting.1", "Hissing.1", "Growling.1", "Swatting.1", "Hiding.1", "Fleeing.1")
+
+# Filter only rows where the patient received gabapentin
+gaba_yes <- gaba_data %>% filter(Did_this_patient_get_gaba == "Yes")
+
+
+after <- gaba_yes %>%
+  select(all_of(after_cols)) %>%
+  #setNames(before_cols) %>%  # rename to match
+  mutate(Timepoint = "After")
+
+before <- gaba_yes %>%
+  select(all_of(before_cols)) %>%
+  setNames(after_cols) %>%  # rename to match
+  mutate(Timepoint = "Before")
+
+# Combine datasets
+combined <- bind_rows(before, after)
+
+# Calculate median scores
+heatmap_data <- combined %>%
+  group_by(Timepoint) %>%
+  summarise(across(all_of(after_cols), mean, na.rm = TRUE)) %>%
+  pivot_longer(cols = all_of(after_cols), names_to = "Behavior", values_to = "Score")
+
+# Plot the heatmap
+ggplot(heatmap_data, aes(x = Behavior, y = Timepoint, fill = Score)) +
+  geom_tile(color = "black") +
+  geom_text(aes(label = round(Score, 2)), color = "black", size = 4) +
+  scale_fill_gradient2(low = "white", high = "darkorange3", limits = c(1, 5)) +
+  labs(title = "Behavior Scores Before and After Gabapentin",
+       x = "Behavior",
+       y = "Timepoint",
+       fill = "Average Score (1–5)") +
+  theme_minimal()
+```
+```{r}
+wilcox.test(Biting ~ Timepoint , data = combined)
+wilcox.test(Fleeing ~ Timepoint, data = combined)
+wilcox.test(Growling ~ Timepoint, data = combined)
+wilcox.test(Hiding ~ Timepoint, data = combined)
+wilcox.test(Hissing ~ Timepoint, data = combined)
+wilcox.test(Swatting ~ Timepoint, data = combined)
+wilcox.test(Vocalization ~ Timepoint, data = combined)
+```
+
+```{r}
+# Select only the behavior columns and grouping column
+x <- c("Vocalization", "Biting", "Hissing", "Growling", "Swatting", "Hiding", "Fleeing")
+
+# Summarize the mean of each behavior by whether the patient was seen before
+heatmap_data <- gaba_data %>%
+  group_by(Did_this_patient_get_gaba) %>%
+  summarise(across(all_of(x), ~mean(.x, na.rm = TRUE))) %>%
+  pivot_longer(cols = all_of(x), names_to = "Behavior", values_to = "Score")
+
+# Plot the heatmap
+ggplot(heatmap_data, aes(x = Behavior, y = Did_this_patient_get_gaba, fill = Score)) +
+  geom_tile(color = "black") +
+  scale_fill_gradient2(low = "white", high = "darkorange3" , limits = c (1, 5)) +
+  geom_text(aes(label = round(Score, 2)), color = "black", size = 4)+
+  labs(title = "Average Behavior Scores by Patient Visit History",
+       x = "Behavior Type",
+       y = "Did this patient get gaba",
+       fill = "Avg. Score (1-5)") +
+  theme_minimal()
+```
+```{r}
+wilcox.test(Biting ~ Did_this_patient_get_gaba, data = gaba_data)
+wilcox.test(Fleeing ~ Did_this_patient_get_gaba, data = gaba_data)
+wilcox.test(Growling ~ Did_this_patient_get_gaba, data = gaba_data)
+wilcox.test(Hiding ~ Did_this_patient_get_gaba, data = gaba_data)
+wilcox.test(Hissing ~ Did_this_patient_get_gaba, data = gaba_data)
+wilcox.test(Swatting ~ Did_this_patient_get_gaba, data = gaba_data)
+wilcox.test(Vocalization ~ Did_this_patient_get_gaba, data = gaba_data)
+```
+```{r}
+# Define behavior columns
+behavior_cols <- c("Vocalization", "Biting", "Hissing", "Growling", "Swatting", "Hiding", "Fleeing")
+before_cols <- paste0(behavior_cols, ".1")  # these are the "before" behavior columns
+
+# Separate the dataset into groups based on gabapentin treatment
+gaba_yes <- gaba_data %>% filter(Did_this_patient_get_gaba == "Yes")  # received gabapentin
+gaba_no <- gaba_data %>% filter(Did_this_patient_get_gaba == "No")    # did not receive gabapentin
+
+# Create "Before" group from pre-gabapentin behavior columns
+before <- gaba_yes %>%
+  select(all_of(before_cols)) %>%
+  setNames(behavior_cols) %>%  # rename to match "after" columns
+  mutate(Timepoint = "Before")
+
+# Create "After" group from post-gabapentin behavior columns
+after <- gaba_yes %>%
+  select(all_of(behavior_cols)) %>%
+  mutate(Timepoint = "After")
+
+# Create "No Gaba" group from patients who did not receive the medication
+nogaba <- gaba_no %>%
+  select(all_of(behavior_cols)) %>%
+  mutate(Timepoint = "No Gaba")
+
+# Combine all three datasets
+combined_all <- bind_rows(before, after, nogaba)
+
+# Calculate the average behavior scores for each group
+heatmap_data <- combined_all %>%
+  group_by(Timepoint) %>%
+  summarise(across(all_of(behavior_cols), ~mean(.x, na.rm = TRUE))) %>%
+  pivot_longer(cols = all_of(behavior_cols), names_to = "Behavior", values_to = "Score")
+
+# Set the order of the Y-axis (group labels)
+heatmap_data$Timepoint <- factor(heatmap_data$Timepoint, levels = c("Before", "After", "No Gaba"))
+
+# Plot the heatmap
+ggplot(heatmap_data, aes(x = Behavior, y = Timepoint, fill = Score)) +
+  geom_tile(color = "black") +  # black grid lines
+  geom_text(aes(label = round(Score, 2)), color = "black", size = 4) +  # text labels
+  scale_fill_gradient2(low = "white", high = "darkorange2", limits = c(1, 5)) +  # color scale
+  labs(title = "Behavior Scores by Timepoint and Treatment",
+       x = "Behavior",
+       y = "Group",
+       fill = "Average Score (1–5)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # rotate X-axis labels
+
+```
+
+```{r}
+
+combined_s <- bind_rows(before, nogaba)
+
+wilcox.test(Biting ~ Timepoint, data = combined_s)
+wilcox.test(Fleeing ~ Timepoint, data = combined_s)
+wilcox.test(Growling ~ Timepoint, data = combined_s)
+wilcox.test(Hiding ~ Timepoint, data = combined_s)
+wilcox.test(Hissing ~ Timepoint, data = combined_s)
+wilcox.test(Swatting ~ Timepoint, data = combined_s)
+wilcox.test(Vocalization ~ Timepoint, data = combined_s)
+```
+
+
+
