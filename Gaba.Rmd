@@ -24,7 +24,13 @@ summary (gaba_data)
 ```
 
 ```{r}
-# Define behavior columns
+# The first behavior columns appearing in the csv are regarding the
+# behavior of the cat at the time the vet is seeing them: This is
+# either after it has recieved gaba or, if the cat was not prescribed
+# gaba pre-appointment, while the cat is not on gaba.
+# The second second behavior columns are only filled in if the cat was
+# prescribed and administered gaba pre-appointment, and contains the
+# rankings of the cat while not on gaba per the vet's recollection.
 after_cols <- c("Vocalization", "Biting", "Hissing", "Growling", "Swatting", "Hiding", "Fleeing")
 before_cols <- c("Vocalization.1", "Biting.1", "Hissing.1", "Growling.1", "Swatting.1", "Hiding.1", "Fleeing.1")
 
@@ -62,15 +68,30 @@ ggplot(heatmap_data, aes(x = Behavior, y = Timepoint, fill = Score)) +
        fill = "Average Score (1–5)") +
   theme_minimal()
 ```
+
 ```{r}
-wilcox.test(Biting ~ Timepoint , data = combined)
-wilcox.test(Fleeing ~ Timepoint, data = combined)
-wilcox.test(Growling ~ Timepoint, data = combined)
-wilcox.test(Hiding ~ Timepoint, data = combined)
-wilcox.test(Hissing ~ Timepoint, data = combined)
-wilcox.test(Swatting ~ Timepoint, data = combined)
-wilcox.test(Vocalization ~ Timepoint, data = combined)
+before
 ```
+
+
+### Compare each behavior between each cat before and after gaba
+This is a *paired* wilcoxon test!
+```{r}
+# Groups must be separated out manually, cannot run paired
+# `wilcox.test` with formula.
+# >> Use `before` and `after` dataframes.
+# >> `after_cols` stores the stress behavior column names.
+for (behavior_name in after_cols) {
+  wilcox_result <- wilcox.test(before[[behavior_name]], after[[behavior_name]], exact=FALSE, paired=TRUE)
+  w.stat <- wilcox_result[1]
+  p.value <- wilcox_result[3]
+  # %.3g for 3 sig figs: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sprintf
+  cat(behavior_name, ":", sprintf("Wilcoxon rank sum test; W=%d, p=%.3g", as.integer(w.stat), p.value), "\n")
+}
+```
+
+
+
 
 ```{r}
 # Select only the behavior columns and grouping column
@@ -93,6 +114,9 @@ ggplot(heatmap_data, aes(x = Behavior, y = Did_this_patient_get_gaba, fill = Sco
        fill = "Avg. Score (1-5)") +
   theme_minimal()
 ```
+
+
+
 ```{r}
 wilcox.test(Biting ~ Did_this_patient_get_gaba, data = gaba_data)
 wilcox.test(Fleeing ~ Did_this_patient_get_gaba, data = gaba_data)
@@ -102,6 +126,8 @@ wilcox.test(Hissing ~ Did_this_patient_get_gaba, data = gaba_data)
 wilcox.test(Swatting ~ Did_this_patient_get_gaba, data = gaba_data)
 wilcox.test(Vocalization ~ Did_this_patient_get_gaba, data = gaba_data)
 ```
+
+
 ```{r}
 # Define behavior columns
 behavior_cols <- c("Vocalization", "Biting", "Hissing", "Growling", "Swatting", "Hiding", "Fleeing")
